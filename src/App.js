@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftSide from './components/LeftSide';
-import RightSide from './components/RightSide';
+import LeftSide from './components/left-side/LeftSide';
+import RightSide from './components/right-side/RightSide';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <div className="col-3 hidden-md-down left-side">
           <LeftSide />
         </div>
-        <div className="col-9 col-sm-10 col-md-10 col-lg-8 col-xl-8">
+        <div className="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
           <RightSide />
         </div>
       </div>
