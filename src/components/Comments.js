@@ -44,7 +44,7 @@ const Comments = ({ currentItem, addComment }) => {
 };
 
 const mapStateToProps = state => ({
-  currentItem: state.items.selectedEntry
+  currentItem: state.currentItem.selectedEntry
 });
 
 const mapDispatchToProps = dispatch => {

@@ -53,7 +53,7 @@ const Items = ({
 
 const mapStateToProps = state => ({
   items: state.items.entries,
-  currentItem: state.items.selectedEntry
+  currentItem: state.currentItem.selectedEntry
 });
 
 const mapDispatchToProps = dispatch => {
