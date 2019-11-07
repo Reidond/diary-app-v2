@@ -1,8 +1,9 @@
 import React from 'react';
-import Items from './Items';
-import Comments from './Comments';
+import '../scss/RightView.scss';
+import Items from '../components/Items';
+import Comments from '../components/Comments';
 
-const RightSide = () => (
+const RightView = () => (
   <div className="container-fluid p-4">
     <div className="row">
       <div className="col-6">
@@ -15,4 +16,4 @@ const RightSide = () => (
   </div>
 );
 
-export default RightSide;
+export default RightView;
