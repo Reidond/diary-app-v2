@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const Item = ({
   item,
   removeItem,
   selectItem,
   currentItem,
-  removeCurrentItem
+  removeCurrentItem,
+  comments,
 }) => {
   const handleButtonClick = id => {
     if (id === currentItem.id) {
@@ -18,6 +20,8 @@ const Item = ({
 
   const handleItemClick = localItem => selectItem(localItem);
 
+  const [localComments, setLocalComments] = useState([]);
+
   const [isActiveClass, setIsActiveClass] = useState('col-12');
 
   useEffect(() => {
@@ -27,6 +31,10 @@ const Item = ({
       setIsActiveClass('col-12');
     }
   }, [currentItem, item]);
+
+  useEffect(() => {
+    setLocalComments(comments[item.id]);
+  }, [comments, item.id]);
 
   return (
     <div className={isActiveClass}>
@@ -39,7 +47,12 @@ const Item = ({
             role="button"
             tabIndex="-1"
           >
-            <div className="p-3 font-weight-bold">{item.title}</div>
+            <div className="p-3 font-weight-bold">
+              {item.title}{' '}
+              <span className="badge badge-pill badge-primary">
+                {localComments?.length}
+              </span>
+            </div>
           </div>
           <div className="col-2">
             <button
@@ -63,4 +76,11 @@ Item.propTypes = {
   removeCurrentItem: PropTypes.func.isRequired
 };
 
-export default Item;
+const mapStateToProps = state => ({
+  comments: state.comments.entries
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Item);

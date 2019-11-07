@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Comment from './Comment';
 import NoComments from './NoComments';
@@ -6,9 +6,15 @@ import AddComment from './AddComment';
 import NoCurrentItem from './NoCurrentItem';
 import { ADD_COMMENT } from '../actions/actionTypes';
 
-const Comments = ({ currentItem, addComment }) => {
+const Comments = ({ currentItem, addComment, comments }) => {
   const isItemNullOrEmpty =
     !currentItem || Object.keys(currentItem).length === 0;
+
+  const [currentItemComments, setCurrentItemComments] = useState([]);
+
+  useEffect(() => {
+    setCurrentItemComments(comments[(currentItem?.id)]);
+  }, [comments, currentItem, currentItemComments]);
 
   return (
     <div className="card shadow-sm bg-white rounded">
@@ -21,11 +27,12 @@ const Comments = ({ currentItem, addComment }) => {
         ) : (
           <div className="card-text">
             <div className="row pt-2">
-              {!currentItem?.comments?.length ? (
+              {!currentItemComments?.length ? (
                 <NoComments />
               ) : (
-                currentItem.comments?.map(comment => (
-                  <div key={comment.id} className="pt-5 col-12 p-0">
+                currentItemComments.map((comment, i) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <div key={comment.id + i} className="pt-5 col-12 p-0">
                     <Comment comment={comment} />
                   </div>
                 ))
@@ -33,7 +40,10 @@ const Comments = ({ currentItem, addComment }) => {
             </div>
             {currentItem && Object.keys(currentItem).length > 0 ? (
               <div className="row pt-5">
-                <AddComment addComment={addComment} />
+                <AddComment
+                  addComment={addComment}
+                  currentItemId={currentItem.id}
+                />
               </div>
             ) : null}
           </div>
@@ -44,7 +54,8 @@ const Comments = ({ currentItem, addComment }) => {
 };
 
 const mapStateToProps = state => ({
-  currentItem: state.currentItem.selectedEntry
+  currentItem: state.currentItem.selectedEntry,
+  comments: state.comments.entries
 });
 
 const mapDispatchToProps = dispatch => {

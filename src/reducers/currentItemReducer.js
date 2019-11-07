@@ -1,8 +1,7 @@
 import {
   SELECT_ITEM,
   LOAD_ITEM,
-  REMOVE_CURRENT_ITEM,
-  ADD_COMMENT
+  REMOVE_CURRENT_ITEM
 } from '../actions/actionTypes';
 
 const LOCAL_STORAGE_NAME = 'current-item';
@@ -19,14 +18,6 @@ const handlers = {
   [REMOVE_CURRENT_ITEM]: state => {
     localStorage.setItem(LOCAL_STORAGE_NAME, null);
     return { ...state, selectedEntry: null };
-  },
-  [ADD_COMMENT]: (state, payload) => {
-    const item = localStorage.getItem(LOCAL_STORAGE_NAME);
-    const normalItem = (item && JSON.parse(item)) || {};
-    // eslint-disable-next-line no-unused-expressions
-    normalItem?.comments?.push(payload);
-    localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(normalItem));
-    return { ...state, selectedEntry: normalItem };
   },
   DEFAULT: state => state
 };

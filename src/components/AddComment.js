@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { randomHexColor } from '../utils/randomHexColor';
-import { generateID } from '../utils/generateID';
 
-const AddComment = ({ addComment }) => {
+const AddComment = ({ addComment, currentItemId }) => {
   const [value, setValue] = useState('');
 
   const handleKeyDown = event => {
     const comment = {
-      id: generateID(),
+      id: currentItemId,
       avatar: randomHexColor(),
       text: value
     };
@@ -41,7 +40,8 @@ const AddComment = ({ addComment }) => {
 };
 
 AddComment.propTypes = {
-  addComment: PropTypes.func.isRequired
+  addComment: PropTypes.func.isRequired,
+  currentItemId: PropTypes.string.isRequired
 };
 
 export default AddComment;

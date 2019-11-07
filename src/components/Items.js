@@ -6,7 +6,9 @@ import {
   REMOVE_ITEM,
   SELECT_ITEM,
   LOAD_ITEM,
-  REMOVE_CURRENT_ITEM
+  REMOVE_CURRENT_ITEM,
+  ADD_COMMENTS_TO_STORE,
+  REMOVE_ALL_COMMENTS
 } from '../actions/actionTypes';
 import AddItem from './AddItem';
 import Item from './Item';
@@ -19,7 +21,9 @@ const Items = ({
   currentItem,
   selectItem,
   loadItem,
-  removeCurrentItem
+  removeCurrentItem,
+  removeAllComments,
+  getComments
 }) => {
   useEffect(() => {
     getItems();
@@ -28,6 +32,10 @@ const Items = ({
   useEffect(() => {
     loadItem();
   }, [loadItem]);
+
+  useEffect(() => {
+    getComments();
+  }, [getComments]);
 
   return (
     <div className="card shadow-sm bg-white rounded">
@@ -41,6 +49,7 @@ const Items = ({
               item={item}
               removeItem={removeItem}
               removeCurrentItem={removeCurrentItem}
+              removeAllComments={removeAllComments}
               selectItem={selectItem}
               key={item.id}
             />
@@ -63,7 +72,10 @@ const mapDispatchToProps = dispatch => {
     removeItem: id => dispatch({ type: REMOVE_ITEM, payload: id }),
     selectItem: item => dispatch({ type: SELECT_ITEM, payload: item }),
     loadItem: () => dispatch({ type: LOAD_ITEM }),
-    removeCurrentItem: () => dispatch({ type: REMOVE_CURRENT_ITEM })
+    removeCurrentItem: () => dispatch({ type: REMOVE_CURRENT_ITEM }),
+    getComments: () => dispatch({ type: ADD_COMMENTS_TO_STORE }),
+    removeAllComments: id =>
+      dispatch({ type: REMOVE_ALL_COMMENTS, payload: id })
   };
 };
 
