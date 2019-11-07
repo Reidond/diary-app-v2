@@ -4,7 +4,8 @@ import {
   REMOVE_ITEM,
   SELECT_ITEM,
   LOAD_ITEM,
-  REMOVE_CURRENT_ITEM
+  REMOVE_CURRENT_ITEM,
+  ADD_COMMENT
 } from '../actions/actionTypes';
 import { pushToLocalStorage } from '../helpers/pushToLocalStorage';
 import { filterFromLocalStorage } from '../helpers/filterFromLocalStorage';
@@ -36,6 +37,14 @@ const handlers = {
   [REMOVE_CURRENT_ITEM]: state => {
     localStorage.setItem(CURRENT_ITEM_LS_NAME, null);
     return { ...state, selectedEntry: null };
+  },
+  [ADD_COMMENT]: (state, payload) => {
+    const item = localStorage.getItem(CURRENT_ITEM_LS_NAME);
+    const normalItem = (item && JSON.parse(item)) || {};
+    // eslint-disable-next-line no-unused-expressions
+    normalItem?.comments?.push(payload);
+    localStorage.setItem(CURRENT_ITEM_LS_NAME, JSON.stringify(normalItem));
+    return { ...state, selectedEntry: normalItem };
   },
   DEFAULT: state => state
 };
