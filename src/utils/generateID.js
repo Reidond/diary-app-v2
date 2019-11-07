@@ -1,5 +1,5 @@
 export function generateID() {
-  return `_${Math.random()
+  return `${Math.random()
     .toString(36)
     .substr(2, 9)}`;
 }
