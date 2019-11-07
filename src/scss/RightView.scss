@@ -1,0 +1,40 @@
+.right-view {
+  &--title {
+    color: #565a69;
+  }
+
+  &--active {
+    border-left: 5px solid red;
+  }
+
+  &--item {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+}
+
+.comment {
+  &--avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  &--avatar-main {
+    background: gainsboro;
+  }
+
+  &--item {
+    ::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      bottom: -20px;
+      left: 22px;
+      right: 22px;
+      border-color: rgba(0, 0, 0, 0.125);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+  }
+}
