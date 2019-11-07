@@ -16,7 +16,10 @@
 }
 
 .comment {
+  width: 60px;
+  height: 60px;
+
   &--avatar {
-    background-color: gainsboro;
+    background: gainsboro;
   }
 }
