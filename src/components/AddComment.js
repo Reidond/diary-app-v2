@@ -24,7 +24,7 @@ const AddComment = ({ addComment }) => {
     <form className="w-100">
       <div className="form-row">
         <div className="col-2 pl-4">
-          <div className="comment comment--avatar" />
+          <div className="comment--avatar comment--avatar-main" />
         </div>
         <div className="col-10 pl-2 pr-4">
           <textarea

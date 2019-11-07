@@ -25,8 +25,8 @@ const Comments = ({ currentItem, addComment }) => {
                 <NoComments />
               ) : (
                 currentItem.comments?.map(comment => (
-                  <div className="pt-5 col-12 p-0">
-                    <Comment key={comment.id} comment={comment} />
+                  <div key={comment.id} className="pt-5 col-12 p-0">
+                    <Comment comment={comment} />
                   </div>
                 ))
               )}

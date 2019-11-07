@@ -23,7 +23,7 @@ const AddItem = ({ addItem }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
-        <div className="col-10 d-flex flex-grow-1 pl-3">
+        <div className="col-9 d-flex flex-grow-1 pl-3">
           <input
             type="text"
             className="form-control"
@@ -32,8 +32,8 @@ const AddItem = ({ addItem }) => {
             onChange={e => setValue(e.target.value)}
           />
         </div>
-        <div className="col-2">
-          <button type="submit" className="btn btn-primary">
+        <div className="col-3">
+          <button type="submit" className="btn btn-primary w-100 text-white">
             Add new
           </button>
         </div>
