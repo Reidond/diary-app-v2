@@ -16,10 +16,25 @@
 }
 
 .comment {
-  width: 60px;
-  height: 60px;
-
   &--avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  &--avatar-main {
     background: gainsboro;
+  }
+
+  &--item {
+    ::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      bottom: -20px;
+      left: 22px;
+      right: 22px;
+      border-color: rgba(0, 0, 0, 0.125);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
   }
 }
