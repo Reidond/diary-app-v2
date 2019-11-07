@@ -21,7 +21,7 @@ const Item = ({
   const [isActiveClass, setIsActiveClass] = useState('col-12');
 
   useEffect(() => {
-    if (item.id === currentItem.id) {
+    if (item?.id === currentItem?.id) {
       setIsActiveClass('col-12 right-view--active');
     } else {
       setIsActiveClass('col-12');
