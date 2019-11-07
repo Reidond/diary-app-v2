@@ -11,7 +11,6 @@ const AddItem = ({ addItem }) => {
     const item = {
       id: generateID(),
       title: value,
-      comments: [],
       isActive: false
     };
 
