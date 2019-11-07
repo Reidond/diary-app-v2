@@ -9,12 +9,14 @@ const Item = ({
   currentItem,
   removeCurrentItem,
   comments,
+  removeAllComments
 }) => {
   const handleButtonClick = id => {
     if (id === currentItem.id) {
       removeCurrentItem();
     }
 
+    removeAllComments(id);
     removeItem(id);
   };
 

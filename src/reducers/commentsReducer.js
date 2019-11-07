@@ -24,6 +24,13 @@ const handlers = {
     localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(normalComments));
     return { ...state, entries: normalComments };
   },
+  [REMOVE_ALL_COMMENTS]: (state, payload) => {
+    const comments = localStorage.getItem(LOCAL_STORAGE_NAME);
+    const normalComments = (comments && JSON.parse(comments)) || {};
+    delete normalComments[payload];
+    localStorage.setItem(LOCAL_STORAGE_NAME, JSON.stringify(normalComments));
+    return { ...state, entries: normalComments };
+  },
   DEFAULT: state => state
 };
 
