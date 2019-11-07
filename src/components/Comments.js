@@ -7,11 +7,16 @@ import NoCurrentItem from './NoCurrentItem';
 import { ADD_COMMENT } from '../actions/actionTypes';
 
 const Comments = ({ currentItem, addComment }) => {
+  const isItemNullOrEmpty =
+    !currentItem || Object.keys(currentItem).length === 0;
+
   return (
     <div className="card shadow-sm bg-white rounded">
       <div className="card-body">
-        <h2 className="card-title right-view--title">Comments</h2>
-        {!currentItem || Object.keys(currentItem).length === 0 ? (
+        <h2 className="card-title right-view--title">
+          Comments {isItemNullOrEmpty ? null : `#${currentItem.id}`}
+        </h2>
+        {isItemNullOrEmpty ? (
           <NoCurrentItem />
         ) : (
           <div className="card-text">
