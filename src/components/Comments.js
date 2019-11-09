@@ -20,7 +20,8 @@ const Comments = ({ currentItem, addComment, comments }) => {
     <div className="card shadow-sm bg-white rounded">
       <div className="card-body">
         <h2 className="card-title right-view--title">
-          Comments {isItemNullOrEmpty ? null : `#${currentItem.id}`}
+          Comments{' '}
+          {isItemNullOrEmpty ? null : `#${currentItem.id.split('-')[0]}`}
         </h2>
         {isItemNullOrEmpty ? (
           <NoCurrentItem />
