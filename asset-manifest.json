@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/diary-app-v2/static/css/main.a83b02e6.chunk.css",
+    "main.js": "/diary-app-v2/static/js/main.9ccddab9.chunk.js",
+    "main.js.map": "/diary-app-v2/static/js/main.9ccddab9.chunk.js.map",
+    "runtime-main.js": "/diary-app-v2/static/js/runtime-main.be0fa168.js",
+    "runtime-main.js.map": "/diary-app-v2/static/js/runtime-main.be0fa168.js.map",
+    "static/js/2.10899d53.chunk.js": "/diary-app-v2/static/js/2.10899d53.chunk.js",
+    "static/js/2.10899d53.chunk.js.map": "/diary-app-v2/static/js/2.10899d53.chunk.js.map",
+    "index.html": "/diary-app-v2/index.html",
+    "precache-manifest.fb454b5387e481db6416d71781a3953b.js": "/diary-app-v2/precache-manifest.fb454b5387e481db6416d71781a3953b.js",
+    "service-worker.js": "/diary-app-v2/service-worker.js",
+    "static/css/main.a83b02e6.chunk.css.map": "/diary-app-v2/static/css/main.a83b02e6.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.be0fa168.js",
+    "static/js/2.10899d53.chunk.js",
+    "static/css/main.a83b02e6.chunk.css",
+    "static/js/main.9ccddab9.chunk.js"
+  ]
+}
