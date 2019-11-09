@@ -1,25 +1,12 @@
-import {
-  ADD_ITEMS_TO_STORE,
-  ADD_ITEM,
-  REMOVE_ITEM
-} from '../actions/actionTypes';
-import { pushToLocalStorage } from '../helpers/pushToLocalStorage';
-import { filterFromLocalStorage } from '../helpers/filterFromLocalStorage';
-
-const LOCAL_STORAGE_NAME = 'items';
+import { ADD_ITEM, REMOVE_ITEM } from '../actions/actionTypes';
 
 const handlers = {
   [ADD_ITEM]: (state, payload) => {
-    const localItems = pushToLocalStorage(LOCAL_STORAGE_NAME, payload);
-    return { ...state, entries: localItems };
+    return { ...state, entries: [...state.entries, payload] };
   },
   [REMOVE_ITEM]: (state, payload) => {
-    const localItems = filterFromLocalStorage(LOCAL_STORAGE_NAME, payload);
+    const localItems = state.entries.filter(item => item.id !== payload);
     return { ...state, entries: localItems };
-  },
-  [ADD_ITEMS_TO_STORE]: state => {
-    const items = localStorage.getItem(LOCAL_STORAGE_NAME);
-    return { ...state, entries: (items && JSON.parse(items)) || [] };
   },
   DEFAULT: state => state
 };
