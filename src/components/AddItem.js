@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { generateID } from '../utils/generateID';
+import { v4 } from 'node-uuid';
 
 const AddItem = ({ addItem }) => {
   const [value, setValue] = useState('');
@@ -9,7 +9,7 @@ const AddItem = ({ addItem }) => {
     e.preventDefault();
 
     const item = {
-      id: generateID(),
+      id: v4(),
       title: value,
       isActive: false
     };
