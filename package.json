@@ -1,8 +1,8 @@
 {
-  "name": "diary-app",
-  "version": "0.2.0",
+  "name": "diary-app-v2",
+  "version": "0.3.0",
   "private": true,
-  "homepage": "https://reidond.github.io/diary-app",
+  "homepage": "https://reidond.github.io/diary-app-v2",
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "bootstrap": "^4.3.1",
